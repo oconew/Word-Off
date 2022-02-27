@@ -16,7 +16,6 @@ app.use(express.static("public"));
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-
     socket.on('disconnect', () => {
         console.log('user disconnected');
         if (socket.roomId !== undefined) {
@@ -74,8 +73,8 @@ io.on('connection', (socket) => {
         socket.to(socket.roomId).emit('lose')
         io.to(rooms[socket.roomId].host).emit('restart')
     })
-  });
+});
 
 server.listen(process.env.PORT || port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${process.env.port}`)
 })

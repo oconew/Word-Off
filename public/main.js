@@ -114,7 +114,6 @@ function create_room() {
 function join_room() {
   room_id = document.getElementById('Room ID').value.toUpperCase()
   const empty = ''
-  console.log(room_id)
   socket.emit('join_room', {id: room_id})
   closeNav('join popup')
 }
