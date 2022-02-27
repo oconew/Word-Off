@@ -76,6 +76,6 @@ io.on('connection', (socket) => {
     })
   });
 
-server.listen(port, () => {
+server.listen(process.env.PORT || port, () => {
     console.log(`Example app listening on port ${port}`)
 })
